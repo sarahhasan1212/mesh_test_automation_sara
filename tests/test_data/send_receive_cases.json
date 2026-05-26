@@ -1,0 +1,75 @@
+[
+    {
+        "id": "offline-node-cannot-send",
+        "description": "OFFLINE node cannot send message — returns False",
+        "node_booted": false,
+        "node_state": null,
+        "battery_level": null,
+        "action": "send",
+        "expected_result": false,
+        "expected_tx": null,
+        "expected_rx": null,
+        "is_bug": false
+    },
+    {
+        "id": "offline-node-cannot-receive",
+        "description": "OFFLINE node cannot receive message — returns False",
+        "node_booted": false,
+        "node_state": null,
+        "battery_level": null,
+        "action": "receive",
+        "expected_result": false,
+        "expected_tx": null,
+        "expected_rx": null,
+        "is_bug": false
+    },
+    {
+        "id": "online-node-send-increments-tx",
+        "description": "Sending from ONLINE node increments TX count to 1 RX stays 0",
+        "node_booted": true,
+        "node_state": "online",
+        "battery_level": 100.0,
+        "action": "send",
+        "expected_result": true,
+        "expected_tx": 1,
+        "expected_rx": 0,
+        "is_bug": false,
+        "smoke": true
+    },
+    {
+        "id": "online-node-receive-increments-rx",
+        "description": "Receiving on ONLINE node increments RX count to 1 TX stays 0",
+        "node_booted": true,
+        "node_state": "online",
+        "battery_level": 100.0,
+        "action": "receive",
+        "expected_result": true,
+        "expected_tx": 0,
+        "expected_rx": 1,
+        "is_bug": false
+    },
+    {
+        "id": "low-battery-can-send-bug",
+        "description": "LOW_BATTERY node SHOULD send — spec allows it but bug rejects it",
+        "node_booted": true,
+        "node_state": "low_battery",
+        "battery_level": 15.0,
+        "action": "send",
+        "expected_result": true,
+        "expected_tx": null,
+        "expected_rx": null,
+        "is_bug": true
+    },
+    {
+        "id": "low-battery-can-receive",
+        "description": "LOW_BATTERY node CAN receive messages — degraded but not dead",
+        "node_booted": true,
+        "node_state": "low_battery",
+        "battery_level": 15.0,
+        "action": "receive",
+        "expected_result": true,
+        "expected_tx": null,
+        "expected_rx": null,
+        "is_bug": false
+    }
+]

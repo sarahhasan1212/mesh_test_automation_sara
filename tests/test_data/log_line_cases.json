@@ -1,0 +1,39 @@
+[
+    {
+        "id": "valid-line-hex-node-id",
+        "description": "Valid log line with hex node id 0x001A parses to integer node_id 26",
+        "line": "[2025-01-15 08:30:00.100] NODE:0x001A LEVEL:INFO COMP:BOOT MSG:Node booted successfully",
+        "expected_node_id": 26,
+        "expected_valid": true,
+        "from_file": false,
+        "missing_file": false,
+        "smoke": true
+    },
+    {
+        "id": "invalid-line-returns-none",
+        "description": "Invalid log line format returns None from parse_line()",
+        "line": "this is not a valid log line",
+        "expected_node_id": null,
+        "expected_valid": false,
+        "from_file": false,
+        "missing_file": false
+    },
+    {
+        "id": "parse-file-returns-list",
+        "description": "parse_file() returns a non-empty list of LogEntry objects",
+        "line": null,
+        "expected_node_id": null,
+        "expected_valid": null,
+        "from_file": true,
+        "missing_file": false
+    },
+    {
+        "id": "missing-file-handled-gracefully-bug",
+        "description": "parse_file() should handle missing file gracefully not crash with FileNotFoundError",
+        "line": null,
+        "expected_node_id": null,
+        "expected_valid": null,
+        "from_file": false,
+        "missing_file": true
+    }
+]

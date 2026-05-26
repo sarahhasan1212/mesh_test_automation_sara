@@ -1,0 +1,21 @@
+# Auto-generated test files
+.coverage
+coverage.json
+coverage_fixed.json
+test_results.json
+test_results_fixed.json
+test_report.html
+test_report_fixed.html
+
+# Cache folders
+.pytest_cache/
+__pycache__/
+htmlcov/
+
+# Mac system files
+.DS_Store
+
+# Backup folders
+mesh_simulator_backup/
+tests/test_data_backup/
+tests/test_data_fixed/

@@ -1,0 +1,75 @@
+[
+    {
+        "id": "empty-payload-accepted",
+        "description": "Empty payload should be accepted",
+        "payload_size": 0,
+        "should_accept": true,
+        "check_size_method": false,
+        "raw_payload": null,
+        "is_bug": false
+    },
+    {
+        "id": "small-payload-accepted",
+        "description": "Small payload well within limit",
+        "payload_size": 10,
+        "should_accept": true,
+        "check_size_method": false,
+        "raw_payload": null,
+        "is_bug": false,
+        "smoke": true
+    },
+    {
+        "id": "just-below-limit-accepted",
+        "description": "Payload one byte below maximum limit",
+        "payload_size": 101,
+        "should_accept": true,
+        "check_size_method": false,
+        "raw_payload": null,
+        "is_bug": false
+    },
+    {
+        "id": "exactly-at-limit-accepted",
+        "description": "Payload exactly at maximum size 102 bytes",
+        "payload_size": 102,
+        "should_accept": true,
+        "check_size_method": false,
+        "raw_payload": null,
+        "is_bug": false
+    },
+    {
+        "id": "just-over-limit-rejected",
+        "description": "Payload one byte over maximum — must be rejected",
+        "payload_size": 103,
+        "should_accept": false,
+        "check_size_method": false,
+        "raw_payload": null,
+        "is_bug": false
+    },
+    {
+        "id": "way-over-limit-rejected",
+        "description": "Payload way over maximum — must be rejected",
+        "payload_size": 200,
+        "should_accept": false,
+        "check_size_method": false,
+        "raw_payload": null,
+        "is_bug": false
+    },
+    {
+        "id": "payload-size-5-bytes",
+        "description": "payload_size() must return 5 for b'hello' not 8 — str() wraps bytes",
+        "payload_size": 5,
+        "should_accept": true,
+        "check_size_method": true,
+        "raw_payload": "hello",
+        "is_bug": true
+    },
+    {
+        "id": "payload-size-11-bytes",
+        "description": "payload_size() must return 11 for b'hello world' not 14 — str() wraps bytes",
+        "payload_size": 11,
+        "should_accept": true,
+        "check_size_method": true,
+        "raw_payload": "hello world",
+        "is_bug": true
+    }
+]

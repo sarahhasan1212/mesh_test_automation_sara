@@ -1,0 +1,45 @@
+[
+    {
+        "id": "full-battery-online",
+        "description": "Full battery node is ONLINE and can send",
+        "battery_level": 100.0,
+        "expected_state": "online",
+        "can_send": true,
+        "smoke": true
+    },
+    {
+        "id": "above-threshold-stays-online",
+        "description": "Battery just above 20% threshold stays ONLINE",
+        "battery_level": 20.1,
+        "expected_state": "online",
+        "can_send": true
+    },
+    {
+        "id": "exactly-at-threshold-low-battery",
+        "description": "Battery exactly at 20% is LOW_BATTERY but can send message",
+        "battery_level": 20.0,
+        "expected_state": "low_battery",
+        "can_send": true
+    },
+    {
+        "id": "below-threshold-low-battery",
+        "description": "Battery below 20% is LOW_BATTERY",
+        "battery_level": 19.9,
+        "expected_state": "low_battery",
+        "can_send": false
+    },
+    {
+        "id": "critically-low-battery",
+        "description": "Battery at 5% is LOW_BATTERY",
+        "battery_level": 5.0,
+        "expected_state": "low_battery",
+        "can_send": false
+    },
+    {
+        "id": "zero-battery-cannot-send",
+        "description": "Zero battery node is OFFLINE and cannot send",
+        "battery_level": 0.0,
+        "expected_state": "offline",
+        "can_send": false
+    }
+]

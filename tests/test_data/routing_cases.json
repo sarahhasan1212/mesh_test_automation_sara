@@ -1,0 +1,54 @@
+[
+    {
+        "id": "direct-neighbor-delivery",
+        "description": "Message delivered successfully between direct neighbors",
+        "nodes": [1, 2],
+        "links": [[1, 2]],
+        "source_id": 1,
+        "destination_id": 2,
+        "expected_result": true,
+        "check_source_rx": false,
+        "smoke": true
+    },
+    {
+        "id": "multi-hop-delivery",
+        "description": "Message delivered across relay nodes: node 1 → node 2 → node 3",
+        "nodes": [1, 2, 3],
+        "links": [[1, 2], [2, 3]],
+        "source_id": 1,
+        "destination_id": 3,
+        "expected_result": true,
+        "check_source_rx": false
+    },
+    {
+        "id": "source-does-not-receive-own-message",
+        "description": "Source node must NOT receive its own outgoing message — received_count stays 0",
+        "nodes": [1, 2],
+        "links": [[1, 2]],
+        "source_id": 1,
+        "destination_id": 2,
+        "expected_result": true,
+        "check_source_rx": true,
+        "is_bug": true
+    },
+    {
+        "id": "unknown-destination-dropped",
+        "description": "Message dropped when destination node does not exist in network",
+        "nodes": [1, 2],
+        "links": [[1, 2]],
+        "source_id": 1,
+        "destination_id": 99,
+        "expected_result": false,
+        "check_source_rx": false
+    },
+    {
+        "id": "no-path-message-dropped",
+        "description": "Message dropped when nodes exist but no path connects them",
+        "nodes": [1, 2],
+        "links": [],
+        "source_id": 1,
+        "destination_id": 2,
+        "expected_result": false,
+        "check_source_rx": false
+    }
+]

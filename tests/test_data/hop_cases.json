@@ -1,0 +1,42 @@
+[
+    {
+        "id": "increment-from-zero",
+        "description": "hop_count starts at 0 and increments to 1",
+        "hop_count": 0,
+        "max_hops": 10,
+        "action": "increment",
+        "expected_hop_count": 1,
+        "expected_expired": false,
+        "is_bug": false
+    },
+    {
+        "id": "not-expired-below-max",
+        "description": "Message below max hops is not expired",
+        "hop_count": 9,
+        "max_hops": 10,
+        "action": "check_expired",
+        "expected_hop_count": null,
+        "expected_expired": false,
+        "is_bug": false
+    },
+    {
+        "id": "expired-at-exactly-max",
+        "description": "hop_count equals max_hops (10 of 10) — message must be expired",
+        "hop_count": 10,
+        "max_hops": 10,
+        "action": "check_expired",
+        "expected_hop_count": null,
+        "expected_expired": true,
+        "is_bug": true
+    },
+    {
+        "id": "expired-above-max",
+        "description": "Message above max hops is expired",
+        "hop_count": 11,
+        "max_hops": 10,
+        "action": "check_expired",
+        "expected_hop_count": null,
+        "expected_expired": true,
+        "is_bug": false
+    }
+]

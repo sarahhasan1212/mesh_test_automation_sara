@@ -1,0 +1,34 @@
+[
+    {
+        "id": "flash-success-full-battery",
+        "description": "Full battery flash reboots node to ONLINE and updates version",
+        "battery_level": 100.0,
+        "node_booted": true,
+        "new_version": "2.0.0",
+        "expected_result": null,
+        "expected_state": "online",
+        "expected_version": "2.0.0",
+        "is_bug": true
+    },
+    {
+        "id": "flash-rejected-low-battery",
+        "description": "Firmware flash rejected when battery is below 30% minimum",
+        "battery_level": 25.0,
+        "node_booted": true,
+        "new_version": "2.0.0",
+        "expected_result": false,
+        "expected_state": null,
+        "expected_version": "1.0.0",
+        "smoke": true
+    },
+    {
+        "id": "flash-rejected-offline-node",
+        "description": "Firmware flash rejected when node is OFFLINE — must be ONLINE to flash",
+        "battery_level": 100.0,
+        "node_booted": false,
+        "new_version": "2.0.0",
+        "expected_result": false,
+        "expected_state": "offline",
+        "expected_version": "1.0.0"
+    }
+]

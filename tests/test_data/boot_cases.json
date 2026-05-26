@@ -1,0 +1,44 @@
+[
+    {
+        "id": "new-node-starts-offline",
+        "description": "Newly created node should be OFFLINE before boot",
+        "battery_level": 100.0,
+        "action": "create_only",
+        "expected_result": null,
+        "expected_state": "offline"
+    },
+    {
+        "id": "boot-full-battery",
+        "description": "Node boots successfully with full battery — returns True, state ONLINE",
+        "battery_level": 100.0,
+        "action": "boot",
+        "expected_result": true,
+        "expected_state": "online",
+        "smoke": true
+    },
+    {
+        "id": "boot-zero-battery",
+        "description": "Node cannot boot with zero battery — returns False, state ERROR",
+        "battery_level": 0.0,
+        "action": "boot",
+        "expected_result": false,
+        "expected_state": "error",
+        "is_bug": true
+    },
+    {
+        "id": "boot-already-online",
+        "description": "Booting an already ONLINE node returns True and stays ONLINE",
+        "battery_level": 100.0,
+        "action": "boot_twice",
+        "expected_result": true,
+        "expected_state": "online"
+    },
+    {
+        "id": "shutdown-sets-offline",
+        "description": "Shutdown after successful boot sets node state to OFFLINE",
+        "battery_level": 100.0,
+        "action": "shutdown",
+        "expected_result": null,
+        "expected_state": "offline"
+    }
+]
