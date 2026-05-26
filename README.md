@@ -1,4 +1,4 @@
-# Wirepas Mesh Network — Test Suite
+# Mesh Network Automation— Test Suite
 
 ## 🚀 Quick Start — Run Everything in 4 Steps
 
@@ -46,7 +46,7 @@ A professional pytest-based test suite for a simulated Wirepas mesh network. The
 
 ## 1. Project Overview
 
-This project tests a Python simulator (`mesh_simulator/`) that models a **Wirepas mesh network** — a low-power wireless protocol used in industrial IoT deployments (smart meters, asset tracking, building automation, etc.).
+This project tests a Python simulator (`mesh_simulator/`) that models a **mesh network** — a low-power wireless protocol used in industrial IoT deployments (smart meters, asset tracking, building automation, etc.).
 
 The simulator intentionally contains bugs. The test suite's job is to find them, document them clearly, and prove each one fails with a reproducible test. All bugs are separated into dedicated `_bug`-suffixed tests so they can be run in isolation.
 
