@@ -64,6 +64,7 @@ The simulator intentionally contains bugs. The test suite's job is to find them,
 
 ## 2. Project Structure
 
+```
 scaffold/
 ├── mesh_simulator/           # The simulator under test (contains bugs)
 │   ├── node.py               # Node states, boot, send/receive, diagnostics
@@ -118,6 +119,7 @@ scaffold/
 ├── pytest.ini                # Pytest config and mark registration
 ├── BUG_REPORT.md             # Detailed bug documentation
 └── requirements.txt          # Python dependencies
+```
 
 ---
 
